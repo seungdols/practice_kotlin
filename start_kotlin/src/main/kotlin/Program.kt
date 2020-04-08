@@ -8,14 +8,18 @@ import com.seungdols.Providers
  */
 
 fun main(args: Array<String>) {
+    getAllProviders{key, value -> println("\t${key}: ${value}")}
+}
+
+fun getAllProviders(fn: (String, String) -> Unit) {
     val allProviders = Providers.getProviders()
 
     val it = allProviders.iterator()
-    while(it.hasNext()) {
+    while (it.hasNext()) {
         val provider = it.next()
         println(provider.name)
 
-        provider.forEach { key, value -> println("\t${key}: ${value}")}
+        provider.forEach { (key, value) -> fn(key.toString(), value.toString()) }
     }
 }
 
