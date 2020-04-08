@@ -10,13 +10,9 @@ interface Signatory {
     fun sign()
 }
 
-open class Person(val name: String, var age: Int) : Signatory {
-    var isMarried: Boolean = false
-    constructor(name: String, age: Int, isMarried: Boolean): this(name, age) {
-        this.isMarried = isMarried
-    }
+open class Person(val name: String, var age: Int, var isMarried: Boolean = false) : Signatory {
 
-    override fun sign()  = println("$name aged $age can sign documents. (and their marital status is $isMarried)")
+    override fun sign() = println("$name aged $age can sign documents. (and their marital status is $isMarried)")
 }
 
 class Student(name: String, age: Int) : Person(name, age)
