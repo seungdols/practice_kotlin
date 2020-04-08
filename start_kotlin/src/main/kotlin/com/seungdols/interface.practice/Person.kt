@@ -10,6 +10,8 @@ interface Signatory {
     fun sign()
 }
 
+data class User(val name: String, val id: Int)
+
 open class Person(val name: String, var age: Int, var isMarried: Boolean = false) : Signatory {
 
     var partnerName: String = ""
@@ -33,4 +35,14 @@ open class Person(val name: String, var age: Int, var isMarried: Boolean = false
 
 class Student(name: String, age: Int) : Person(name, age)
 
+fun main(args: Array<String>) {
+    val user = User("seungdols", 1)
+    println(user)
+
+    val (name, id) = user
+    println("Use is $name, $id")
+
+    val otherUser = user.copy(id = 2)
+    println(otherUser)
+}
 
