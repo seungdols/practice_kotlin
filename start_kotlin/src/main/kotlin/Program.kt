@@ -10,7 +10,7 @@ import com.seungdols.Providers
 fun main(args: Array<String>) {
 
     val providers = Providers()
-    val details = providers.getAllProviders("Random")
+    val details = providers.getAllProvidersEx("Random")
 
     details.forEach(::println)
 //    getAllProviders{key, value -> println("\t${key}: ${value}")}
