@@ -8,7 +8,12 @@ import com.seungdols.Providers
  */
 
 fun main(args: Array<String>) {
-    getAllProviders{key, value -> println("\t${key}: ${value}")}
+
+    val providers = Providers()
+    val details = providers.getAllProviders("Random")
+
+    details.forEach(::println)
+//    getAllProviders{key, value -> println("\t${key}: ${value}")}
 }
 
 fun getAllProviders(fn: (String, String) -> Unit) {
