@@ -1,6 +1,10 @@
 package com.seungdols.calc
 
+import com.nhaarman.mockitokotlin2.mock
+import com.nhaarman.mockitokotlin2.verify
 import org.junit.jupiter.api.Assertions
+import org.mockito.Mock
+import org.mockito.Mockito
 import org.spekframework.spek2.Spek
 import org.spekframework.spek2.style.specification.describe
 
@@ -11,8 +15,8 @@ import org.spekframework.spek2.style.specification.describe
  * @DATE 2020/04/20
  */
 internal class CalculatorSpek : Spek({
-    var calculator: Calculator? = null
     describe("The Calculator") {
+        var calculator: Calculator? = null
         beforeEachTest { calculator = Calculator(NullResult()) }
 
         it ("should add two numbers") {
@@ -28,5 +32,15 @@ internal class CalculatorSpek : Spek({
             calculator?.accmulate(3)
             Assertions.assertEquals(5, calculator?.total)
         }
+    }
+
+    describe("the output should be written correctly") {
+        val result : Result = mock()
+        val calculator = Calculator(result)
+       it("should write the output amount") {
+           calculator.accmulate(23)
+
+           verify(result).wrtie(23)
+       }
     }
 })

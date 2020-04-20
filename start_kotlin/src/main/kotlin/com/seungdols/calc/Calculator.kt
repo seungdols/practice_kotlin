@@ -15,6 +15,7 @@ class Calculator(val output: Result) {
 
     fun accmulate(x: Int) {
         total += x
+        output.wrtie(total)
     }
 
 }
