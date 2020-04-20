@@ -8,9 +8,15 @@ package com.seungdols.calc
  */
 
 class Calculator(val output: Result) {
+    var total = 0
     fun add (a: Int, b: Int): Int {
         return a + b
     }
+
+    fun accmulate(x: Int) {
+        total += x
+    }
+
 }
 
 interface Result {
